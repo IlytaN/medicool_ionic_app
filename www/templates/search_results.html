@@ -1,0 +1,34 @@
+<ion-view view-title="search_results">
+  <ion-content>
+    <div ng-if="foundmedicine!==undefined">
+      <h3 class="assertive padding">{{foundmedicine.name}}</h3>
+      <p>{{foundmedicine.description}}</p>
+      <div class="list">
+        <a class="item item-thumbnail-left" href="#">
+          <img ng-src="{{foundmedicine.picture}}">
+          <h2>in stock: 3</h2>
+          <button class="button button-small button-calm">
+            BUY
+          </button>
+        </a>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/ionic.png">
+          <h2>in stock: 3</h2>
+          <button class="button button-small button-calm">
+            BUY
+          </button>
+        </a>
+        <a class="item item-thumbnail-left" href="#">
+          <img src="img/ionic.png">
+          <h2>in stock: 3</h2>
+          <button class="button button-small button-calm">
+            BUY
+          </button>
+        </a>
+      </div>
+    </div>
+    <div ng-if="foundmedicine==undefined">
+      <h1>No result found</h1>
+    </div>
+  </ion-content>
+</ion-view>
