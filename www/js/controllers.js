@@ -19,10 +19,21 @@ angular.module('starter.controllers', [])
         $rootScope.foundmedicine = result;
         console.log($rootScope.foundmedicine);
     });
+    MedicineService.BuyMed($scope.input).then(function(result) {
+        $rootScope.inStockMedicines = result;
+        console.log($rootScope.inStockMedicines);
+    });
+    MedicineService.dummyPharma().then(function(result) {
+        $rootScope.dummystore = result;
+        console.log($rootScope.dummystore);
+    });
     $state.go('app.search_results');
   };
 })
-.controller('SearchResultsCtrl', function($scope,$rootScope) {
+.controller('SearchResultsCtrl', function($scope,$rootScope,$state) {
+  $scope.goMedicineDetail = function() {
+    $state.go('app.medicine_detail');
+  }
 })
 .controller('MedicineDetailCtrl', function($scope) {
 })

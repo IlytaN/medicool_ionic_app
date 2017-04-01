@@ -1,1 +1,43 @@
-/* Empty. Add your own CSS if you like */
+.center{
+     text-align:center;
+}
+.bold{
+  font-weight: bold;
+}
+.med-title{
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 10px;
+  color: rgba(232, 128, 134, 0.88);
+}
+.intro{
+  font-size: 1.2em;
+}
+.bigger-header{
+  height: 3.5em;
+  background-color: rgb(127, 214, 209) !important;
+  color: white;
+}
+.home-header{
+  height: 10em;
+  background-image: url('../img/medicine.jpg') !important;
+}
+.custom-content{
+  top: 10em;
+}
+.medicine_info{
+  padding-left: 30px;
+}
+.medicine_info >p{
+  font-size: 1em;
+}
+.medicine_info > h2{
+  font-weight: bold !important;
+  font-size: 1.1em;
+}
+.medicine_info > span{
+  font-weight: bold;
+  font-size: 1.3em;
+  color: orange;
+}

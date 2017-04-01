@@ -1,27 +1,27 @@
-<ion-view view-title="search_results">
+<ion-view view-title="results">
   <ion-content>
     <div ng-if="foundmedicine!==undefined">
-      <h3 class="assertive padding">{{foundmedicine.name}}</h3>
-      <p>{{foundmedicine.description}}</p>
+      <div class="">
+        <p class="med-title assertive center" ng-click="goMedicineDetail()">{{foundmedicine.m_generic_name}}</p>
+        <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
+      </div>
+      <!-- filter will be here -->
       <div class="list">
         <a class="item item-thumbnail-left" href="#">
-          <img ng-src="{{foundmedicine.picture}}">
-          <h2>in stock: 3</h2>
-          <button class="button button-small button-calm">
+          <img ng-src="{{dummystore.p_logo}}">
+          <p class="bold">in stock: {{inStockMedicines.med_q}}</p>
+          <p class="bold">price: {{inStockMedicines.med_price}}</p>
+          <p class="bold">rating: {{foundmedicine.m_rating}}</p>
+          <button class="button button-full button-positive">
             BUY
           </button>
         </a>
         <a class="item item-thumbnail-left" href="#">
-          <img src="img/ionic.png">
-          <h2>in stock: 3</h2>
-          <button class="button button-small button-calm">
-            BUY
-          </button>
-        </a>
-        <a class="item item-thumbnail-left" href="#">
-          <img src="img/ionic.png">
-          <h2>in stock: 3</h2>
-          <button class="button button-small button-calm">
+          <img ng-src="{{dummystore.p_logo}}">
+          <p class="bold">in stock: {{inStockMedicines.med_q}}</p>
+          <p class="bold">price: {{inStockMedicines.med_price}}</p>
+          <p class="bold">rating: {{foundmedicine.m_rating}}</p>
+          <button class="button button-full button-positive">
             BUY
           </button>
         </a>

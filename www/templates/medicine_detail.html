@@ -1,14 +1,32 @@
-<ion-view view-title="medicine_detail">
+<ion-view view-title="medicine detail">
   <ion-content>
-    <h3>Medicine name</h3>
+    <div class="">
+      <p class="med-title assertive center">{{foundmedicine.m_generic_name}}</p>
+      <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
+    </div>
     <div class="list card">
-      <div class="item item-body">
-        <img class="full-image" src="img/ionic.png">
-        <p>
-          This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-          the content is from a card-body consisting of an image and paragraph text. The footer
-          consists of tabs, icons aligned left, within the card-footer.
-        </p>
+      <div class="item item-body medicine_info">
+        <img class="full-image" ng-src="{{foundmedicine.m_photo}}">
+        <h2>Rating: </h2><span>{{foundmedicine.m_rating}}</span>
+        <!-- Rate the medicine here -->
+        <h2>Imprint: </h2>
+          <p>{{foundmedicine.m_imprint}}</p>
+        <h2>Strength: </h2>
+          <p>{{foundmedicine.m_strength}}</p>
+        <h2>Color: </h2>
+          <p>{{foundmedicine.m_color}}</p>
+        <h2>Shape: </h2>
+          <p>{{foundmedicine.m_shape}}</p>
+        <h2>Availability: </h2>
+          <p>{{foundmedicine.m_availablity}}</p>
+        <h2>Drug class: </h2>
+          <p>{{foundmedicine.m_drug_class}}</p>
+        <h2>Full description: </h2>
+          <p>{{foundmedicine.m_description}}</p>
+        <h2>Manufacture: </h2>
+          <p>{{foundmedicine.m_manufactures}}</p>
+        <h2>Schedule: </h2>
+          <p>{{foundmedicine.m_csa_schedule}}</p>
       </div>
     </div>
   </ion-content>

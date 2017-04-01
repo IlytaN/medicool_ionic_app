@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -40,6 +40,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'HomeCtrl'
       }
     }
+  })
+  .state('hometry', {
+    url: '/hometry',
+    templateUrl: 'templates/hometry.html',
+    controller: 'HomeCtrl'
   })
   .state('app.search_results', {
       url: '/search_results',

@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-calm bigger-header">
+    <ion-nav-bar class="bar-calm home-header">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -9,7 +9,27 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-nav-view view-title="Home">
+      <ion-content class="custom-content">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search" ng-model="input.searchText">
+          </label>
+          <div class="list list-inset">
+            <label class="item item-select">
+              <select ng-model="input.searchCity">
+                <option selected="selected">Moscow</option>
+                <option>St.Petersburg</option>
+              </select>
+            </label>
+          </div>
+          <button class="button button-block button-calm" ng-click="updateSearch()">
+            Search
+          </button>
+        </div>
+      </ion-content>
+    </ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="right">
