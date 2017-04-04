@@ -1,27 +1,13 @@
-<ion-view view-title="medicine_list">
+<ion-view view-title="Medicine">
   <ion-content>
-    <div class="list">
-      <a class="item item-thumbnail-left" href="#">
-        <img src="img/ionic.png">
-        <h2>Medicine 1</h2>
-        <button class="button button-small button-calm">
+    <div class="list padding" ng-repeat="drug in alldrugs">
+      <div class="item-thumbnail-left" href="#">
+        <img ng-src="{{drug.m_photo}}">
+        <div class="med-smalltitle">{{drug.m_generic_name}}</div>
+        <button class="button button-full custom-button" ng-click="goMedicineDetail(drug.m_id)">
           Read more
         </button>
-      </a>
-      <a class="item item-thumbnail-left" href="#">
-        <img src="img/ionic.png">
-        <h2>Medicine 2</h2>
-        <button class="button button-small button-calm">
-          Read more
-        </button>
-      </a>
-      <a class="item item-thumbnail-left" href="#">
-        <img src="img/ionic.png">
-        <h2>Medicine 3</h2>
-        <button class="button button-small button-calm">
-          Read more
-        </button>
-      </a>
+      </div>
     </div>
   </ion-content>
 </ion-view>

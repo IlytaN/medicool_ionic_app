@@ -70,8 +70,26 @@ angular.module('starter.services', [])
     p_logo: "img/ionic.png",
     p_city: "Moscow",
     p_address: "Moscow city center",
-    p_link: "wwww.RIP.hell",
+    p_link: "https://www.google.fi/",
     p_phone_number: "039423423"
+  },
+  {
+    p_id: 1,
+    p_name: "RIP2",
+    p_logo: "img/ionic.png",
+    p_city: "Hell",
+    p_address: "Hell city center",
+    p_link: "wwww.RIP2.hell",
+    p_phone_number: "0393523423"
+  },
+  {
+    p_id: 2,
+    p_name: "RIP3",
+    p_logo: "img/ionic.png",
+    p_city: "Moscow",
+    p_address: "Hell city center",
+    p_link: "wwww.RIP3.hell",
+    p_phone_number: "03945423423"
   }];
   var buy_med_t = [{
     med_id: 3,
@@ -117,6 +135,22 @@ angular.module('starter.services', [])
           }
       });
     },
+    searchMedicineById: function(id) {
+      return $q(function(resolve, reject){
+          var drug = medicines_t.find(function(element){
+              return element.m_id === id
+          });
+
+          if(drug !== undefined)
+          {
+              resolve(drug);
+          }
+          else
+          {
+              reject();
+          }
+      });
+    },
     BuyMed: function(input) {
       return $q(function(resolve, reject){
           var buy_medicine = buy_med_t.find(function(element){
@@ -132,6 +166,16 @@ angular.module('starter.services', [])
               reject();
           }
       });
+  },
+  allMedicine: function(){
+    return $q(function(resolve, reject){
+      resolve(medicines_t);
+    });
+  },
+  allPharmacies: function(){
+    return $q(function(resolve, reject){
+      resolve(pharmacies_t);
+    });
   },
   dummyPharma: function(){
     return $q(function(resolve, reject){

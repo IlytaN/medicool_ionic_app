@@ -37,9 +37,24 @@ angular.module('starter.controllers', [])
 })
 .controller('MedicineDetailCtrl', function($scope) {
 })
-.controller('MedicineListCtrl', function($scope) {
+.controller('MedicineListCtrl', function($scope,MedicineService,$rootScope,$state) {
+  MedicineService.allMedicine().then(function(result) {
+      $rootScope.alldrugs = result;
+      console.log($rootScope.alldrugs);
+  });
+  $scope.goMedicineDetail = function(id) {
+    MedicineService.searchMedicineById(id).then(function(result) {
+        $rootScope.foundmedicine = result;
+        console.log($rootScope.foundmedicine);
+    });
+    $state.go('app.medicine_detail');
+  }
 })
-.controller('PharmaciesListCtrl', function($scope) {
+.controller('PharmaciesListCtrl', function($scope,MedicineService,$rootScope) {
+  MedicineService.allPharmacies().then(function(result) {
+      $rootScope.alldrugstore = result;
+      console.log($rootScope.alldrugstore);
+  });
 })
 .controller('ContactsCtrl', function($scope) {
 })

@@ -11,12 +11,19 @@
   padding-top: 10px;
   color: rgba(232, 128, 134, 0.88);
 }
+.med-smalltitle{
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 10px;
+  color: rgba(232, 128, 134, 0.88);
+}
 .intro{
   font-size: 1.2em;
 }
 .bigger-header{
   height: 3.5em;
-  background-color: rgb(127, 214, 209) !important;
+  background-color: rgba(87, 165, 161, 0.33);
   color: white;
 }
 .home-header{
@@ -40,4 +47,18 @@
   font-weight: bold;
   font-size: 1.3em;
   color: orange;
+}
+.custom-button{
+  color: white;
+  background-color: #32628a !important;
+  border-radius: 10px;
+  font-size: 1.4em;
+}
+.custom-button >a{
+  color: white !important;
+  text-decoration: none;
+  right: 10px !important;
+}
+.menu-button{
+  color: white !important;
 }
