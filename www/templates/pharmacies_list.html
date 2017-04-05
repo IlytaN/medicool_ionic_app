@@ -2,11 +2,11 @@
   <ion-content>
     <div class="list padding" ng-repeat="drugstore in alldrugstore">
       <div class="item-thumbnail-left" href="#">
-        <img ng-src="{{drugstore.p_logo}}">
+        <img class="padding" ng-src="{{drugstore.p_logo}}">
         <div class="med-smalltitle">{{drugstore.p_name}}</div>
-        <button class="button button-full custom-button">
-          <a ng-href="{{drugstore.p_link}}">Read more</a>
-        </button>
+        <div>{{drugstore.p_address}}</div>
+        <div>{{drugstore.p_phone_number}}</div>
+        <a class="button button-full custom-button" ng-href="{{drugstore.p_link}}">Read more</a>
       </div>
     </div>
   </ion-content>
