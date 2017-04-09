@@ -172,6 +172,12 @@ angular.module('starter.services', [])
       resolve(medicines_t);
     });
   },
+  addRating: function(num,id){
+    return $q(function(resolve, reject){
+      resolve();
+      // send a POST request to server to add rating number
+    });
+  },
   allPharmacies: function(){
     return $q(function(resolve, reject){
       resolve(pharmacies_t);

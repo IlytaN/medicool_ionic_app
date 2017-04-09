@@ -6,6 +6,33 @@
         <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
       </div>
       <!-- filter will be here -->
+      <div class="padding">
+        <h3 ng-click="toggleFilter()">Filter</h3>
+        <div class="row">
+          <div class="col">
+            <select>
+              <option>Price</option>
+              <option>under 10 euros</option>
+              <option>10-20 euros</option>
+            </select>
+          </div>
+          <div class="col">
+            <select>
+              <option>Distance</option>
+              <option>under 2km</option>
+              <option>2-4km</option>
+            </select>
+          </div>
+          <div class="col">
+            <select>
+              <option>Rating</option>
+              <option>1 star</option>
+              <option>2 stars</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- found results -->
       <div class="list">
         <a class="item item-thumbnail-left" href="#">
           <img ng-src="{{dummystore.p_logo}}">

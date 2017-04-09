@@ -65,3 +65,10 @@
 .back-button{
   color: white !important;
 }
+.custom-form{
+  height: 100px;
+  width: 100%;
+  border-width: thin;
+  border-style: inset;
+  border-color: inherit;
+}

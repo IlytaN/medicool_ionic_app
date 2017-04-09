@@ -33,9 +33,19 @@ angular.module('starter.controllers', [])
 .controller('SearchResultsCtrl', function($scope,$rootScope,$state) {
   $scope.goMedicineDetail = function() {
     $state.go('app.medicine_detail');
+  };
+  $scope.toggleFilter = function(){
+
   }
 })
-.controller('MedicineDetailCtrl', function($scope) {
+.controller('MedicineDetailCtrl', function($scope,MedicineService,$rootScope) {
+    $scope.rate = function(number) {
+      $scope.num = number;
+    };
+    // below function doesn't work yet. It needs to send UPDATED rating and medicine id to server/service
+    MedicineService.addRating($scope.num,$rootScope.foundmedicine.m_id).then(function(result) {
+      console.log($scope.num,$rootScope.foundmedicine.m_id);
+    });
 })
 .controller('MedicineListCtrl', function($scope,MedicineService,$rootScope,$state) {
   MedicineService.allMedicine().then(function(result) {

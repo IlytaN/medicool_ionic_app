@@ -9,6 +9,16 @@
         <img class="full-image" ng-src="{{foundmedicine.m_photo}}">
         <h2>Rating: </h2><span>{{foundmedicine.m_rating}}</span>
         <!-- Rate the medicine here -->
+        <div class="">
+          <div class="row">
+            <!-- below lines are not ready yet. -->
+            <ion-radio class="col energized" ng-click="rate(1)">1</ion-radio>
+            <ion-radio class="col energized" ng-click="rate(2)">2</ion-radio>
+            <ion-radio class="col energized" ng-click="rate(3)">3</ion-radio>
+            <ion-radio class="col energized" ng-click="rate(4)">4</ion-radio>
+            <ion-radio class="col energized" ng-click="rate(5)">5</ion-radio>
+          </div>
+        </div>
         <h2>Imprint: </h2>
           <p>{{foundmedicine.m_imprint}}</p>
         <h2>Strength: </h2>
@@ -27,6 +37,18 @@
           <p>{{foundmedicine.m_manufactures}}</p>
         <h2>Schedule: </h2>
           <p>{{foundmedicine.m_csa_schedule}}</p>
+      </div>
+      <!-- loaded comments -->
+      <div class="padding">
+        <h3>Comments</h3>
+        <h4 class="bold">Username</h4>
+        <p>blablabla</p>
+      </div>
+      <!-- write new comment -->
+      <div class="padding list-inset">
+        <h3>Add a comment</h3>
+        <textarea class="custom-form"></textarea>
+        <button class="button button-full custom-button">Submit</button>
       </div>
     </div>
   </ion-content>
