@@ -4,7 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']).constant('ApiEndpoint', {
+  url: 'http://localhost:5000/'
+  //Use this link for real server: https://medicoolserver.herokuapp.com/
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -48,6 +51,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
   .state('app.search_results', {
       url: '/search_results',
+      params: {
+        obj: null
+      },
       views: {
         'menuContent': {
           templateUrl: 'templates/search_results.html',

@@ -16,8 +16,7 @@ angular.module('starter.controllers', [])
   };
   $scope.updateSearch = function() {
     MedicineService.searchMedicine($scope.input).then(function(result) {
-        $rootScope.foundmedicine = result;
-        console.log($rootScope.foundmedicine);
+        $state.go('app.search_results', { obj: result.data });
     });
     MedicineService.BuyMed($scope.input).then(function(result) {
         $rootScope.inStockMedicines = result;
@@ -25,12 +24,11 @@ angular.module('starter.controllers', [])
     });
     MedicineService.dummyPharma().then(function(result) {
         $rootScope.dummystore = result;
-        console.log($rootScope.dummystore);
     });
-    $state.go('app.search_results');
   };
 })
 .controller('SearchResultsCtrl', function($scope,$rootScope,$state) {
+  $scope.foundmedicine = $state.params.obj;
   $scope.goMedicineDetail = function() {
     $state.go('app.medicine_detail');
   };
