@@ -2,7 +2,7 @@
   <ion-content>
     <div ng-if="foundmedicine!==undefined">
       <div class="">
-        <p class="med-title assertive center" ng-click="goMedicineDetail()">{{foundmedicine.m_generic_name}}</p>
+        <p class="med-title assertive center" ng-click="goMedicineDetail()">{{foundmedicine.med_name}}</p>
         <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
       </div>
       <!-- filter will be here -->
@@ -37,7 +37,7 @@
         <a class="item item-thumbnail-left" href="#">
           <img ng-src="{{dummystore.p_logo}}">
           <p class="bold">in stock: {{inStockMedicines.med_q}}</p>
-          <p class="bold">price: {{inStockMedicines.med_price}}</p>
+          <p class="bold">price: {{foundmedicine.med_price}}</p>
           <p class="bold">rating: {{foundmedicine.m_rating}}</p>
           <button class="button button-full custom-button">
             BUY
