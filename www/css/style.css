@@ -72,3 +72,7 @@
   border-style: inset;
   border-color: inherit;
 }
+#map {
+    width: 100%;
+    height: 100%;
+}
