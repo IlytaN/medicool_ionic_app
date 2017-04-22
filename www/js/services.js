@@ -24,18 +24,19 @@ angular.module('starter.services', [])
     },
     searchMedicineById: function(id) {
       return $q(function(resolve, reject){
-          var drug = medicines_t.find(function(element){
-              return element.m_id === id
-          });
-
-          if(drug !== undefined)
-          {
-              resolve(drug);
-          }
-          else
-          {
-              reject();
-          }
+        $http.post(ApiEndpoint.url+"search_medicine_by_id", {searchId: id}).then(function(response){
+          if(response.status == 200)
+              {
+                console.log(response.data);
+                resolve(response);
+              }
+              else
+              {
+                reject();
+              }
+        },function(err){
+            reject();
+        });
       });
     },
     BuyMed: function(input) {
@@ -56,7 +57,19 @@ angular.module('starter.services', [])
   },
   allMedicine: function(){
     return $q(function(resolve, reject){
-      resolve(medicines_t);
+      $http.get(ApiEndpoint.url+"showmedicines").then(function(response){
+        if(response.status == 200)
+            {
+              console.log(response.data);
+              resolve(response);
+            }
+            else
+            {
+              reject();
+            }
+      },function(err){
+          reject();
+      });
     });
   },
   addRating: function(num,id){

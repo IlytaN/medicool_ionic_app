@@ -51,6 +51,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
   .state('map', {
     url: '/map',
+    params: {
+      placeLat: null,
+      placeLong: null
+    },
     templateUrl: 'templates/map.html',
     controller: 'MapCtrl'
   })
@@ -68,6 +72,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
   .state('app.medicine_detail', {
       url: '/medicine_detail',
+      params: {
+        obj: null
+      },
       views: {
         'menuContent': {
           templateUrl: 'templates/medicine_detail.html',
@@ -77,6 +84,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
   .state('app.medicine_list', {
       url: '/medicine_list',
+      params: {
+        obj: null
+      },
       views: {
         'menuContent': {
           templateUrl: 'templates/medicine_list.html',

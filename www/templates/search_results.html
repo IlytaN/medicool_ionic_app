@@ -2,7 +2,7 @@
   <ion-content>
     <div ng-if="foundmedicine!==undefined">
       <div class="">
-        <p class="med-title assertive center" ng-click="goMedicineDetail()">{{foundmedicine.med_name}}</p>
+        <p class="med-title assertive center" ng-click="goMedicineDetail({{foundmedicine.m_id}})">{{foundmedicine.m_name}}</p>
         <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
       </div>
       <!-- filter will be here -->
@@ -35,8 +35,9 @@
       <!-- found results -->
       <div class="list">
         <a class="item item-thumbnail-left" href="#">
-          <img ng-src="{{dummystore.p_logo}}">
-          <p class="bold">in stock: {{inStockMedicines.med_q}}</p>
+          <img ng-src="{{foundmedicine.p_logo}}">
+          <p class="pharmacy-name center">{{foundmedicine.p_name}}</p>
+          <p class="bold">in stock: {{foundmedicine.med_q}}</p>
           <p class="bold">price: {{foundmedicine.med_price}}</p>
           <p class="bold">rating: {{foundmedicine.m_rating}}</p>
           <button class="button button-full custom-button" ng-click="gotoMap()">

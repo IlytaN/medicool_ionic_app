@@ -3,7 +3,7 @@
     <div class="list padding" ng-repeat="drug in alldrugs">
       <div class="item-thumbnail-left" href="#">
         <img ng-src="{{drug.m_photo}}">
-        <div class="med-smalltitle">{{drug.m_generic_name}}</div>
+        <div class="med-smalltitle">{{drug.m_name}}</div>
         <button class="button button-full custom-button" ng-click="goMedicineDetail(drug.m_id)">
           Read more
         </button>
