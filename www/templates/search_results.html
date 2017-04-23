@@ -1,6 +1,6 @@
 <ion-view view-title="results">
   <ion-content>
-    <div ng-if="foundmedicine!==undefined">
+    <div>
       <div class="">
         <p class="med-title assertive center" ng-click="goMedicineDetail({{foundmedicine.m_id}})">{{foundmedicine.m_name}}</p>
         <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
@@ -48,9 +48,6 @@
           </button>
         </a>
       </div>
-    </div>
-    <div ng-if="foundmedicine==undefined">
-      <h1>No result found</h1>
     </div>
   </ion-content>
 </ion-view>

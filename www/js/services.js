@@ -5,7 +5,7 @@ angular.module('starter.services', [])
   var pharmacies_t = [];
   var buy_med_t = [];
   return{
-    searchMedicine: function(input) {
+  searchMedicine: function(input) {
       return $q(function(resolve, reject){
         $http.post(ApiEndpoint.url+"search_medicine", {searchText: input.searchText, searchCity: input.searchCity}).then(function(response){
           if(response.status == 200)
@@ -13,7 +13,7 @@ angular.module('starter.services', [])
                 console.log(response.data);
                 resolve(response);
               }
-              else
+              else if ( response.status == 204)
               {
                 reject();
               }
@@ -22,7 +22,8 @@ angular.module('starter.services', [])
         });
       });
     },
-    searchMedicineById: function(id) {
+
+  searchMedicineById: function(id) {
       return $q(function(resolve, reject){
         $http.post(ApiEndpoint.url+"search_medicine_by_id", {searchId: id}).then(function(response){
           if(response.status == 200)
@@ -39,7 +40,8 @@ angular.module('starter.services', [])
         });
       });
     },
-    BuyMed: function(input) {
+
+  BuyMed: function(input) {
       return $q(function(resolve, reject){
           var buy_medicine = buy_med_t.find(function(element){
               return element.med_name === input.searchText
@@ -55,6 +57,7 @@ angular.module('starter.services', [])
           }
       });
   },
+
   allMedicine: function(){
     return $q(function(resolve, reject){
       $http.get(ApiEndpoint.url+"showmedicines").then(function(response){
@@ -72,27 +75,28 @@ angular.module('starter.services', [])
       });
     });
   },
+
   addRating: function(num,id){
     return $q(function(resolve, reject){
       resolve();
       // send a POST request to server to add rating number
     });
   },
+
   allPharmacies: function(){
     return $q(function(resolve, reject){
-      resolve(pharmacies_t);
-    });
-  },
-  dummyPharma: function(){
-    return $q(function(resolve, reject){
-        if(pharmacies_t !== undefined)
-        {
-            resolve(pharmacies_t[0]);
-        }
-        else
-        {
-            reject();
-        }
+      $http.get(ApiEndpoint.url+"showallPharmacies").then(function(response){
+        if(response.status == 200)
+            {
+              resolve(response);
+            }
+            else
+            {
+              reject();
+            }
+      },function(err){
+          reject();
+      });
     });
   }
   };

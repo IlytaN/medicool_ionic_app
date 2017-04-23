@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 })
-.controller('HomeCtrl', function($scope,MedicineService,$state,$rootScope) {
+.controller('HomeCtrl', function($scope, MedicineService, $state, $rootScope, $ionicPopup) {
   $scope.input = {
     searchText: "",
     searchCity: ""
@@ -18,26 +18,44 @@ angular.module('starter.controllers', [])
     $state.go('map', { placeLat: 65.0094995, placeLong: 25.469466199999943 });
   };
   $scope.updateSearch = function() {
-    MedicineService.searchMedicine($scope.input).then(function(result) {
-        $state.go('app.search_results', { obj: result.data });
-    });
+    if ($scope.input.searchText === "") {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Search status',
+        template: 'Please type medicine name'
+      });
+    } else if ($scope.input.searchCity === "") {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Search status',
+        template: 'Please choose city'
+      });
+    } else {
+      MedicineService.searchMedicine($scope.input).then(function(result) {
+          $state.go('app.search_results', { obj: result.data });
+      }).catch(function(){
+        var alertPopup = $ionicPopup.alert({
+          title: 'Search status',
+          template: 'No result found'
+        });
+      });
+    };
+
     MedicineService.BuyMed($scope.input).then(function(result) {
         $rootScope.inStockMedicines = result;
         console.log($rootScope.inStockMedicines);
     });
-    MedicineService.dummyPharma().then(function(result) {
-        $rootScope.dummystore = result;
-    });
   };
 })
-.controller('SearchResultsCtrl', function($scope,MedicineService,$state) {
+.controller('SearchResultsCtrl', function($scope,MedicineService,$state,$ionicPopup) {
   $scope.foundmedicine = $state.params.obj;
   $scope.goMedicineDetail = function(id) {
     MedicineService.searchMedicineById(id).then(function(result) {
-        $scope.foundmedicine = result.data;
-        $state.go('app.medicine_detail', { obj: result.data });
+      $scope.searchedmedicine = result.data;
+      $state.go('app.medicine_detail', { obj: result.data });
     });
-  }
+  };
+  $scope.gotoMap = function() {
+    $state.go('map', { placeLat: 65.0094995, placeLong: 25.469466199999943 });
+  };
   $scope.toggleFilter = function(){
 
   }
@@ -65,10 +83,9 @@ angular.module('starter.controllers', [])
     });
   }
 })
-.controller('PharmaciesListCtrl', function($scope,MedicineService,$rootScope) {
+.controller('PharmaciesListCtrl', function($scope,MedicineService) {
   MedicineService.allPharmacies().then(function(result) {
-      $rootScope.alldrugstore = result;
-      console.log($rootScope.alldrugstore);
+      $scope.alldrugstore = result.data;
   });
 })
 .controller('ContactsCtrl', function($scope) {
