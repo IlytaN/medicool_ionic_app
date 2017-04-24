@@ -46,7 +46,10 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('SearchResultsCtrl', function($scope,MedicineService,$state,$ionicPopup) {
-  $scope.foundmedicine = $state.params.obj;
+  $scope.foundmedicines = $state.params.obj;
+  $scope.commoninfo = { medicine_id: $scope.foundmedicines[0].m_id,
+                        medicine_name: $scope.foundmedicines[0].med_name,
+                        medicine_desc: $scope.foundmedicines[0].m_general_desc };
   $scope.goMedicineDetail = function(id) {
     MedicineService.searchMedicineById(id).then(function(result) {
       $scope.searchedmedicine = result.data;

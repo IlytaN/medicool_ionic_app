@@ -2,8 +2,8 @@
   <ion-content>
     <div>
       <div class="">
-        <p class="med-title assertive center" ng-click="goMedicineDetail({{foundmedicine.m_id}})">{{foundmedicine.m_name}}</p>
-        <p class="intro padding positive">{{foundmedicine.m_general_desc}}</p>
+        <p class="med-title assertive center" ng-click="goMedicineDetail({{commoninfo.medicine_id}})">{{commoninfo.medicine_name}}</p>
+        <p class="intro">{{commoninfo.medicine_desc}}</p>
       </div>
       <!-- filter will be here -->
       <div class="padding">
@@ -33,20 +33,26 @@
         </div>
       </div>
       <!-- found results -->
-      <div class="list">
-        <a class="item item-thumbnail-left" href="#">
-          <img ng-src="{{foundmedicine.p_logo}}">
-          <p class="pharmacy-name center">{{foundmedicine.p_name}}</p>
-          <p class="bold">in stock: {{foundmedicine.med_q}}</p>
-          <p class="bold">price: {{foundmedicine.med_price}}</p>
-          <p class="bold">rating: {{foundmedicine.m_rating}}</p>
-          <button class="button button-full custom-button" ng-click="gotoMap()">
-            See on map
-          </button>
-          <button class="button button-full custom-button">
-            BUY
-          </button>
-        </a>
+      <div class="list" ng-repeat="foundmedicine in foundmedicines">
+        <div class="list card custom-card">
+          <a class="item item-thumbnail-left custom-item" href="#">
+            <img class="pharmacy-thumbnail" ng-src="{{foundmedicine.p_logo}}">
+            <p class="pharmacy-name center">{{foundmedicine.p_name}}</p>
+            <div class="pharmacy-info">
+              <p class="bold">in stock: <span class="pharmacy-info-details">{{foundmedicine.med_q}}</span></p>
+              <p class="bold">price: <span class="pharmacy-info-details">{{foundmedicine.med_price}}$</span></p>
+              <p class="bold">rating: <span class="pharmacy-info-details">{{foundmedicine.m_rating}}/10</span></p>
+            </div>
+          </a>
+          <div class="button-group">
+            <button class="button custom-button" ng-click="gotoMap()">
+              See on map
+            </button>
+            <button class="button custom-button">
+              Buy
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </ion-content>

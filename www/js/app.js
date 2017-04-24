@@ -35,15 +35,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'AppCtrl'
   })
 
-  .state('app.home', {
-    url: '/home',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/home.html',
-        controller: 'HomeCtrl'
-      }
-    }
-  })
   .state('hometry', {
     url: '/hometry',
     templateUrl: 'templates/hometry.html',
