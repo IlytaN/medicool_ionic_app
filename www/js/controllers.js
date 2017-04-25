@@ -74,13 +74,6 @@ angular.module('starter.controllers', [])
 .controller('MedicineDetailCtrl', function($scope,MedicineService,$state) {
     $scope.foundmedicine = $state.params.obj;
     console.log($state.params.obj);
-    // $scope.rate = function(number) {
-    //   $scope.num = number;
-    // };
-    // // below function doesn't work yet. It needs to send UPDATED rating and medicine id to server/service
-    // MedicineService.addRating($scope.num,$rootScope.foundmedicine.m_id).then(function(result) {
-    //   console.log($scope.num,$rootScope.foundmedicine.m_id);
-    // });
 })
 .controller('MedicineListCtrl', function($scope,MedicineService,$rootScope,$state) {
   MedicineService.allMedicine().then(function(result) {
