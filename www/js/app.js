@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova']).constant('ApiEndpoint', {
-  url: 'http://localhost:5000/'
+  url: 'https://medicoolserver.herokuapp.com/'
   //Use this link for real server: https://medicoolserver.herokuapp.com/
 })
 
@@ -52,7 +52,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .state('app.search_results', {
       url: '/search_results',
       params: {
-        obj: null
+        obj1: null,
+        obj2: null
       },
       views: {
         'menuContent': {

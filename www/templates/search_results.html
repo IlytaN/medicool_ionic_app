@@ -2,8 +2,8 @@
   <ion-content>
     <div>
       <div class="">
-        <p class="med-title assertive center" ng-click="goMedicineDetail({{commoninfo.medicine_id}})">{{commoninfo.medicine_name}}</p>
-        <p class="intro">{{commoninfo.medicine_desc}}</p>
+        <p class="med-title assertive center" ng-click="goMedicineDetail({{commoninfo.m_id}})">{{commoninfo.m_name}}</p>
+        <p class="intro">{{commoninfo.m_general_desc}}</p>
       </div>
       <!-- filter will be here -->
       <div class="padding">
@@ -41,7 +41,7 @@
             <div class="pharmacy-info">
               <p class="bold">in stock: <span class="pharmacy-info-details">{{foundmedicine.med_q}}</span></p>
               <p class="bold">price: <span class="pharmacy-info-details">{{foundmedicine.med_price}}$</span></p>
-              <p class="bold">rating: <span class="pharmacy-info-details">{{foundmedicine.m_rating}}/10</span></p>
+              <p class="bold">rating: <span class="pharmacy-info-details">{{foundmedicine.med_rating}}</span></p>
             </div>
           </a>
           <div class="button-group">

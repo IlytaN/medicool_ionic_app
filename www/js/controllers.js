@@ -29,8 +29,17 @@ angular.module('starter.controllers', [])
         template: 'Please choose city'
       });
     } else {
-      MedicineService.searchMedicine($scope.input).then(function(result) {
-          $state.go('app.search_results', { obj: result.data });
+      MedicineService.searchMedicine($scope.input).then(function(result1) {
+
+        MedicineService.searchMedicineInfo($scope.input).then(function(result2) {
+            $state.go('app.search_results', { obj1: result1.data, obj2: result2.data });
+        }).catch(function(){
+          var alertPopup = $ionicPopup.alert({
+            title: 'Search status',
+            template: 'No result found'
+          });
+        });
+
       }).catch(function(){
         var alertPopup = $ionicPopup.alert({
           title: 'Search status',
@@ -46,10 +55,9 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('SearchResultsCtrl', function($scope,MedicineService,$state,$ionicPopup) {
-  $scope.foundmedicines = $state.params.obj;
-  $scope.commoninfo = { medicine_id: $scope.foundmedicines[0].m_id,
-                        medicine_name: $scope.foundmedicines[0].med_name,
-                        medicine_desc: $scope.foundmedicines[0].m_general_desc };
+  $scope.foundmedicines = $state.params.obj1; console.log($scope.foundmedicines);
+  $scope.commoninfo = $state.params.obj2[0]; console.log($state.params.obj2[0].m_name);
+
   $scope.goMedicineDetail = function(id) {
     MedicineService.searchMedicineById(id).then(function(result) {
       $scope.searchedmedicine = result.data;

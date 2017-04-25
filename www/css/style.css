@@ -37,14 +37,19 @@ width: 100%;
 }
 .bigger-header{
   background-color: #484848;
-  color: white;
+  color: white !important;
+}
+.bigger-header >h1{
+    color: white !important;
 }
 .home-header{
-  height: 10em;
-  background-image: url('../img/medicine.jpg') !important;
+  height: 13em;
+  background-image: url('../img/med.png') !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .custom-content{
-  top: 10em;
+  top: 13em;
 }
 .medicine_info{
   padding-left: 30px;
@@ -120,17 +125,13 @@ width: 100%;
 }
 .small-avatar{
   border-radius: 50% !important;
-  max-width: 100px !important;  //any size
   max-height: 100px !important; //any size
-  float: left;
+  max-width: 100px !important; //any size
 }
 .contact-name{
-  font-size: 0.9em !important;
+  font-size: 1em !important;
   text-transform: uppercase;
   font-weight: bold;
   padding-top: 10px;
   color: rgba(232, 128, 134, 0.88);
-}
-.contact-info{
-  float: right;
 }

@@ -22,13 +22,28 @@ angular.module('starter.services', [])
         });
       });
     },
-
+  searchMedicineInfo: function(input) {
+      return $q(function(resolve, reject){
+        $http.post(ApiEndpoint.url+"search_medicine_info", {searchText: input.searchText, searchCity: input.searchCity}).then(function(response){
+          if(response.status == 200)
+              {
+                console.log(response.data);
+                resolve(response);
+              }
+              else if ( response.status == 204)
+              {
+                reject();
+              }
+        },function(err){
+            reject();
+        });
+      });
+    },
   searchMedicineById: function(id) {
       return $q(function(resolve, reject){
         $http.post(ApiEndpoint.url+"search_medicine_by_id", {searchId: id}).then(function(response){
           if(response.status == 200)
               {
-                console.log(response.data);
                 resolve(response);
               }
               else
